@@ -6,19 +6,16 @@ import ContactItem from "./ContactItem";
 
 const ContactList = ({ names, onDeleteContact }) => {
   return (
-    <>
-      <ul className={s.list}>
-        {names.map(({ id, name, number }) => (
-          <ContactItem
-            key={id}
-            name={name}
-            id={id}
-            number={number}
-            onDeleteContact={onDeleteContact}
-          />
-        ))}
-      </ul>
-    </>
+    <ul className={s.list}>
+      {names.map(({ id, name, number }) => (
+        <ContactItem
+          key={id}
+          name={name}
+          number={number}
+          onDeleteContact={() => onDeleteContact(id)}
+        />
+      ))}
+    </ul>
   );
 };
 

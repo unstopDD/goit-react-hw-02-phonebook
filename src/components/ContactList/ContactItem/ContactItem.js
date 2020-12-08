@@ -4,20 +4,18 @@ import s from "./ContactItem.module.css";
 
 const ContactItem = ({ name, number, id, onDeleteContact }) => {
   return (
-    <>
-      <li className={s.item}>
-        <p className={s.text}>
-          {name}: {number}
-          <button
-            className={s.button}
-            type="button"
-            onClick={() => onDeleteContact(id)}
-          >
-            Delete
-          </button>
-        </p>
-      </li>
-    </>
+    <li className={s.item}>
+      <p className={s.text}>
+        {name}: {number}
+        <button
+          className={s.button}
+          type="button"
+          onClick={() => onDeleteContact(id)}
+        >
+          Delete
+        </button>
+      </p>
+    </li>
   );
 };
 

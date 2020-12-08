@@ -19,7 +19,7 @@ class App extends Component {
     filter: "",
   };
 
-  addContact = (name, number) => {
+  addContact = ({ name, number }) => {
     const contact = {
       id: shortid.generate(),
       name,
@@ -69,20 +69,18 @@ class App extends Component {
     const { contacts, filter } = this.state;
 
     return (
-      <>
-        <Section title="Phonebook">
-          <ContactForm onAddContact={this.addContact} />
+      <Section title="Phonebook">
+        <ContactForm onAddContact={this.addContact} />
 
-          {contacts.length > 1 && (
-            <Filter value={filter} onChangeFilter={this.changeFilter} />
-          )}
-          <h2>Contacts</h2>
-          <ContactList
-            names={visibleContacts}
-            onDeleteContact={this.deletContact}
-          />
-        </Section>
-      </>
+        {contacts.length > 1 && (
+          <Filter value={filter} onChangeFilter={this.changeFilter} />
+        )}
+        <h2>Contacts</h2>
+        <ContactList
+          names={visibleContacts}
+          onDeleteContact={this.deletContact}
+        />
+      </Section>
     );
   }
 }
